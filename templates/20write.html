@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기</title>
+</head>
+<body>
+    <h2>글쓰기 페이지</h2>
+    <p>작성자: {{ session['user'] }}</p>
+
+    <form action="/write" method="POST">
+        <p>제목: <input type="text" name="title" required></p>
+        <p>내용:</p>
+        <p><textarea name="content" rows="10" cols="50" required></textarea></p>
+        
+        <button type="submit">등록하기</button>
+        <a href="/">취소</a>
+    </form>
+</body>
+</html>

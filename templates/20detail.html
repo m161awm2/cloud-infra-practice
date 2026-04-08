@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인덱스</title>
+</head>
+<body>
+    <h1>인덱스</h1>
+    hello {{ nickname }}
+    <hr>
+    <h1>{{ posts[2] }}</h1>
+    <hr>
+    <p>{{ posts[3] }}</p>
+    <small>{{ posts[1] }}</small>
+    <hr>
+    <form action="{{ url_for('detail_like', post_id=posts[0]) }}" method="post">
+        <button type="submit">좋아요</button>
+    </form>
+
+    좋아요 : 
+    {% for like in likes %}
+        {{ like[1] }}
+    {% endfor %}
+<hr>
+<form action="{{ url_for('detail_comment', post_id=posts[0]) }}" method="post">
+    <input type="text" name="content" placeholder="댓글 내용을 입력하세요" required>
+    
+    <button type="submit">댓글 쓰기</button>
+</form>
+<hr>
+    {% for comment in comments %}
+        <p>{{ comment[2] }}</p>
+        <small>{{ comment[1] }}</small>
+        <hr>
+    {% endfor %}
+</body>
+</html>
