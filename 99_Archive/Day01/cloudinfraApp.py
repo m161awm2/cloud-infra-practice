@@ -2,7 +2,7 @@ from flask import Flask, request,redirect,render_template,session,url_for
 import pymysql
 from DB_password import DBpassword, AWSpublicedp
 app = Flask(__name__)
-app.secret_key = "this_is_password"
+app.secret_key = DBpassword.pw()
 def mk_db():
     conn = pymysql.connect(
         host=AWSpublicedp.endP(),
