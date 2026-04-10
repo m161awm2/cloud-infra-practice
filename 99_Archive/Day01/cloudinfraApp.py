@@ -1,12 +1,12 @@
 from flask import Flask, request,redirect,render_template,session,url_for
 import pymysql
-from DB_password import DBpassword
+from DB_password import DBpassword, AWSpublicedp
 app = Flask(__name__)
 app.secret_key = "this_is_password"
 def mk_db():
     conn = pymysql.connect(
-        host="localhost",
-        user="root",
+        host=AWSpublicedp.endP(),
+        user="admin",
         passwd=DBpassword.pw()
     )
     c = conn.cursor()
@@ -15,8 +15,8 @@ def mk_db():
     conn.close()
 def connector():
     return pymysql.connect(
-        host = "localhost",
-        user="root",
+        host = AWSpublicedp.endP(),
+        user="admin",
         passwd=DBpassword.pw(),
         database="flask20"
     )
