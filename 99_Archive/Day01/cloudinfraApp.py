@@ -2,7 +2,7 @@ from flask import Flask, request,redirect,render_template,session,url_for
 import pymysql
 from DB_password import DBpassword
 app = Flask(__name__)
-app.secret_key = "땅크"
+app.secret_key = "this_is_password"
 def mk_db():
     conn = pymysql.connect(
         host="localhost",
@@ -17,7 +17,7 @@ def connector():
     return pymysql.connect(
         host = "localhost",
         user="root",
-        passwd="Zdzdsmsm44!",
+        passwd=DBpassword.pw(),
         database="flask20"
     )
 def init_db():
