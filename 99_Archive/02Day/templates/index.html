@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>게시판</h1>
+
+{% if nickname %}
+    <p>{{ nickname }}님 환영합니다 👋</p>
+    <a href="/write">글쓰기</a>
+{% else %}
+    <a href="/login">로그인</a>
+    <a href="/register">회원가입</a>
+{% endif %}
+
+<hr>
+
+{% for post in posts %}
+    <div>
+        <h3>
+            <a href="/post/{{ post[0] }}">{{ post[2] }}</a>
+        </h3>
+        <p>작성자: {{ post[1] }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+</body>
+</html>

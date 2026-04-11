@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Post Detail</title>
+</head>
+<body>
+
+<a href="/">홈</a>
+
+<h2>{{ post[2] }}</h2>
+<p>작성자: {{ post[1] }}</p>
+<p>{{ post[3] }}</p>
+
+<hr>
+
+<h3>댓글</h3>
+
+{% for c in comment %}
+    <p><b>{{ c[1] }}</b>: {{ c[2] }}</p>
+{% endfor %}
+
+<hr>
+
+<form method="POST" action="/post/{{ post[0] }}/comment">
+    <input name="content" placeholder="댓글 작성">
+    <button type="submit">등록</button>
+</form>
+
+</body>
+</html>
