@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Write</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write</title>
 </head>
 <body>
-
-<h1>글쓰기</h1>
-
-<form method="POST">
-    <input name="title" placeholder="제목" maxlength="20" required><br><br>
-    <textarea name="content" placeholder="내용" required></textarea><br><br>
-    <button type="submit">작성</button>
-</form>
-
-<a href="/">홈으로</a>
-
+    <form id="form">
+        <input id="title" placeholder="제목을 입력하세요!" required>
+        <textarea id="content" placeholder="내용을 입력하세요!" required></textarea>
+        <button>글쓰기</button>
+    </form>
+    <p id="message"></p>
+    <a href="{{ url_for('home') }}">돌아가기</a>
 </body>
 </html>

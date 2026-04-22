@@ -1,31 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Post Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세부사항</title>
 </head>
-<body>
-
-<a href="/">홈</a>
-
-<h2>{{ post[2] }}</h2>
-<p>작성자: {{ post[1] }}</p>
-<p>{{ post[3] }}</p>
-
-<hr>
-
-<h3>댓글</h3>
-
-{% for c in comment %}
-    <p><b>{{ c[1] }}</b>: {{ c[2] }}</p>
-{% endfor %}
-
-<hr>
-
-<form method="POST" action="/post/{{ post[0] }}/comment">
-    <input name="content" placeholder="댓글 작성">
-    <button type="submit">등록</button>
-</form>
-
+<body> <!-- 멋지게 꾸미기-->
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <small>{{ post.nickname }}</small>
+    <hr>
+    <a href="{{ url_for('home') }}">돌아가기</a>
+    <h2>댓글</h2>
+    <div id="comment_list"></div>
+    <form id="comment_form">
+        <input id="comment_content" placeholder="댓글을 입력하세요!" required>
+        <button>댓글달기</button>
+    </form>
 </body>
 </html>
