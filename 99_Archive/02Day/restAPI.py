@@ -9,7 +9,7 @@ app.secret_key = DB_PASSWORD
 def makeDb():
     conn = pymysql.connect(
         host=DB_ENDPOINT,
-        user="admin",
+        user="root",
         passwd=DB_PASSWORD,
     )
     c = conn.cursor()
@@ -20,7 +20,7 @@ def makeDb():
 def get_conn():
     return pymysql.connect(
         host=DB_ENDPOINT,
-        user="admin",
+        user="root",
         passwd=DB_PASSWORD,
         database="02Day",
         cursorclass=pymysql.cursors.DictCursor,
@@ -61,8 +61,12 @@ def board():
     c = conn.cursor()
     c.execute("SELECT * FROM posts ORDER BY id DESC")
     posts = c.fetchall()
+    nickname = session.get("user")
     conn.close()
-    return jsonify(posts)
+    return jsonify({
+        "posts" : posts,
+        "nickname" : nickname
+    })
 
 @app.route('/detail/<int:post_id>',methods=["GET"])
 def detail(post_id):
@@ -127,3 +131,6 @@ def register():
     c.execute("INSERT INTO users (nickname,password) VALUES (%s,%s)",(nickname,password))
     conn.commit()
     return jsonify({"message" : "회원가입이 완료되었습니다!"})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0",port=5000,debug=True)
