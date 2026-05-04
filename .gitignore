@@ -22,11 +22,60 @@ build/
 .venv/
 venv/
 
-# JavaScript
+# JavaScript / NestJS
 node_modules/
+/dist
+/node_modules
+/build
 
-# Editors / OS
-.idea/
-.vscode/
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+.idea/
+/.idea
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# dotenv environment variable files
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# temp directory
+.temp
+.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
